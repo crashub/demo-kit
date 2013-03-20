@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>crash-demo</artifactId>
+    <groupId>crash-demo</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>packaging</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Crash Demo Kit - Packaging</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.crsh</groupId>
+      <artifactId>crsh.shell.packaging</artifactId>
+      <type>tar.gz</type>
+    </dependency>
+    <dependency>
+      <groupId>org.crsh</groupId>
+      <artifactId>crsh.shell.packaging</artifactId>
+      <classifier>spring</classifier>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.as</groupId>
+      <artifactId>jboss-as-dist</artifactId>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>crash-demo</groupId>
+      <artifactId>jpa-webapp</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>crash-demo</groupId>
+      <artifactId>jmx-webapp</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat</artifactId>
+      <type>zip</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${version.assembly.plugin}</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <id>make-demos</id>
+            <configuration>
+              <finalName>demo-kit</finalName>
+              <descriptors>
+                <descriptor>src/main/assembly/demos.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>${version.antrun.plugin}</version>
+        <executions>
+          <execution>
+            <id>package</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <chmod dir="${project.build.directory}/demo-kit-demos/demo2-jpa/jboss-as-${version.jboss}/bin" perm="u+x" includes="*.sh" />
+                <chmod dir="${project.build.directory}/demo-kit-demos/demo3-jmx/apache-tomcat-${version.tomcat}/bin" perm="u+x" includes="*.sh" />
+                <chmod dir="${project.build.directory}/demo-kit-demos/demo4-spring/apache-tomcat-${version.tomcat}" perm="u+x" includes="*.sh" />
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

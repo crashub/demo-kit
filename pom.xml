@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>crash-demo</groupId>
+  <artifactId>crash-demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Crash Demo Kit - Parent</name>
+
+  <properties>
+    <version.servlet-api>3.0.0</version.servlet-api>
+    <version.javaee-api>6.0</version.javaee-api>
+    <version.hsqldb>2.2.9</version.hsqldb>
+    <version.crash>1.2.0-cr9</version.crash>
+    <version.jboss>7.1.1.Final</version.jboss>
+    <version.tomcat>7.0.35</version.tomcat>
+    <version.assembly.plugin>2.4</version.assembly.plugin>
+    <version.antrun.plugin>1.7</version.antrun.plugin>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>${version.javaee-api}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <version>${version.hsqldb}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.crsh</groupId>
+        <artifactId>crsh.shell.packaging</artifactId>
+        <version>${version.crash}</version>
+        <type>tar.gz</type>
+      </dependency>
+      <dependency>
+        <groupId>org.crsh</groupId>
+        <artifactId>crsh.shell.packaging</artifactId>
+        <version>${version.crash}</version>
+        <classifier>spring</classifier>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.as</groupId>
+        <artifactId>jboss-as-dist</artifactId>
+        <version>${version.jboss}</version>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-servlet-api</artifactId>
+        <version>${version.tomcat}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat</artifactId>
+        <version>${version.tomcat}</version>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>crash-demo</groupId>
+        <artifactId>jpa-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>crash-demo</groupId>
+        <artifactId>jmx-webapp</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>jpa-webapp</module>
+    <module>packaging</module>
+    <module>jmx-webapp</module>
+  </modules>
+
+</project>

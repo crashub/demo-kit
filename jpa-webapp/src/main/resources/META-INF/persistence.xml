@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="crashJpaDemoPU" transaction-type="JTA">
+        <jta-data-source>java:global/jdbc/crashJpaDemoDS</jta-data-source>
+        <properties>
+            <!-- Properties for EclipseLink -->
+            <property name="eclipselink.target-database" value="DERBY"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.logging.level" value="INFO"/>
+
+            <!-- Properties for Hibernate -->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <property name="jboss.entity.manager.factory.jndi.name" value="crashJpaDemoEMF"/>
+
+            <!-- openjpa -->
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+            <property name="openjpa.Log" value="SQL=TRACE"/>
+            <property name="openjpa.ConnectionFactoryProperties" value="printParameters=true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,10 @@
+.DS_Store
+target
+*.releaseBackup
+release.properties
+.idea
+*.iml
+derby.log
+nul
+.classpath
+.project

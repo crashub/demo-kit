@@ -1,0 +1,119 @@
+<!--
+  ~ Copyright (C) 2003-2009 eXo Platform SAS.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+  -->
+
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
+
+  <id>demos</id>
+  <includeBaseDirectory>false</includeBaseDirectory>
+
+  <formats>
+    <format>dir</format>
+    <format>zip</format>
+  </formats>
+
+  <dependencySets>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo1-standalone/</outputDirectory>
+      <unpack>true</unpack>
+      <includes>
+        <include>org.crsh:crsh.shell.packaging:tar.gz</include>
+      </includes>
+    </dependencySet>
+
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo2-jpa/</outputDirectory>
+      <unpack>true</unpack>
+      <includes>
+        <include>org.jboss.as:jboss-as-dist</include>
+      </includes>
+    </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo2-jpa/jboss-as-${version.jboss}/standalone/deployments/</outputDirectory>
+      <unpack>false</unpack>
+      <includes>
+        <include>crash-demo:jpa-webapp</include>
+      </includes>
+    </dependencySet>
+
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo3-jmx/</outputDirectory>
+      <unpack>true</unpack>
+      <includes>
+        <include>org.apache.tomcat:tomcat</include>
+      </includes>
+    </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo3-jmx/apache-tomcat-${version.tomcat}/webapps/</outputDirectory>
+      <outputFileNameMapping>${artifact.artifactId}.war</outputFileNameMapping>
+      <unpack>false</unpack>
+      <includes>
+        <include>crash-demo:jmx-webapp</include>
+      </includes>
+    </dependencySet>
+
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo4-spring/</outputDirectory>
+      <unpack>true</unpack>
+      <includes>
+        <include>org.apache.tomcat:tomcat</include>
+      </includes>
+    </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/</outputDirectory>
+      <unpack>false</unpack>
+      <includes>
+        <include>org.crsh:crsh.shell.packaging:war:spring</include>
+      </includes>
+    </dependencySet>
+  </dependencySets>
+
+  <fileSets>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory>/demo1-standalone/cmd/</outputDirectory>
+      <includes>
+        <include>monitor.groovy</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory>/demo3-jmx/</outputDirectory>
+      <includes>
+        <include>crashDemo.jmx</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+
+</assembly>
