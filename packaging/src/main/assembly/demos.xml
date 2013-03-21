@@ -91,10 +91,26 @@
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>
       <useTransitiveDependencies>false</useTransitiveDependencies>
-      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/</outputDirectory>
-      <unpack>false</unpack>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/</outputDirectory>
+      <unpack>true</unpack>
+      <unpackOptions>
+        <excludes>
+          <exclude>**/spring.xml</exclude>
+        </excludes>
+      </unpackOptions>
       <includes>
         <include>org.crsh:crsh.shell.packaging:war:spring</include>
+      </includes>
+    </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/WEB-INF/lib/</outputDirectory>
+      <unpack>false</unpack>
+      <includes>
+        <include>crash-demo:spring-lib</include>
+        <include>org.apache.httpcomponents:httpclient</include>
+        <include>org.apache.httpcomponents:httpcore</include>
       </includes>
     </dependencySet>
   </dependencySets>
@@ -112,6 +128,20 @@
       <outputDirectory>/demo3-jmx/</outputDirectory>
       <includes>
         <include>crashDemo.jmx</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/WEB-INF/</outputDirectory>
+      <includes>
+        <include>spring.xml</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/WEB-INF/crash/commands</outputDirectory>
+      <includes>
+        <include>twitter.groovy</include>
       </includes>
     </fileSet>
   </fileSets>

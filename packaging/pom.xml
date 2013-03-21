@@ -41,9 +41,21 @@
       <type>war</type>
     </dependency>
     <dependency>
+      <groupId>crash-demo</groupId>
+      <artifactId>spring-lib</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat</artifactId>
       <type>zip</type>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.httpcomponents</groupId>
+    	<artifactId>httpclient</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.httpcomponents</groupId>
+    	<artifactId>httpcore</artifactId>
     </dependency>
   </dependencies>
 
@@ -83,7 +95,7 @@
               <target>
                 <chmod dir="${project.build.directory}/demo-kit-demos/demo2-jpa/jboss-as-${version.jboss}/bin" perm="u+x" includes="*.sh" />
                 <chmod dir="${project.build.directory}/demo-kit-demos/demo3-jmx/apache-tomcat-${version.tomcat}/bin" perm="u+x" includes="*.sh" />
-                <chmod dir="${project.build.directory}/demo-kit-demos/demo4-spring/apache-tomcat-${version.tomcat}" perm="u+x" includes="*.sh" />
+                <chmod dir="${project.build.directory}/demo-kit-demos/demo4-spring/apache-tomcat-${version.tomcat}/bin" perm="u+x" includes="*.sh" />
               </target>
             </configuration>
           </execution>
