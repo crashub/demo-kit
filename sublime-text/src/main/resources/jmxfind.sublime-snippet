@@ -1,0 +1,4 @@
+<snippet>
+	<content><![CDATA[jmx find -p Catalina:j2eeType=Servlet,WebModule=*jmx-webapp,*]]></content>
+	<tabTrigger>jmx find</tabTrigger>
+</snippet>

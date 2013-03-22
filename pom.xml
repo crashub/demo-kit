@@ -21,6 +21,7 @@
     <version.httpclient>4.2.2</version.httpclient>
     <version.assembly.plugin>2.4</version.assembly.plugin>
     <version.antrun.plugin>1.7</version.antrun.plugin>
+    <version.resources.plugin>2.4.3</version.resources.plugin>
   </properties>
 
   <dependencyManagement>

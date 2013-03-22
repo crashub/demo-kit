@@ -1,0 +1,4 @@
+<snippet>
+	<content><![CDATA[jmx find -p Catalina:j2eeType=Servlet,WebModule=*jmx-webapp,* | jmx get -a WebModule -a name -a servletClass -a requestCount -a processingTime | sort -f processingTime:desc -f WebModule -f name]]></content>
+	<tabTrigger>jmx full</tabTrigger>
+</snippet>

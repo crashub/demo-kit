@@ -59,6 +59,10 @@
     </dependency>
   </dependencies>
 
+  <properties>
+    <demo.output.directory>${project.build.directory}</demo.output.directory>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
@@ -73,6 +77,7 @@
             </goals>
             <id>make-demos</id>
             <configuration>
+              <outputDirectory>${demo.output.directory}</outputDirectory>
               <finalName>demo-kit</finalName>
               <descriptors>
                 <descriptor>src/main/assembly/demos.xml</descriptor>
@@ -93,9 +98,9 @@
             </goals>
             <configuration>
               <target>
-                <chmod dir="${project.build.directory}/demo-kit-demos/demo2-jpa/jboss-as-${version.jboss}/bin" perm="u+x" includes="*.sh" />
-                <chmod dir="${project.build.directory}/demo-kit-demos/demo3-jmx/apache-tomcat-${version.tomcat}/bin" perm="u+x" includes="*.sh" />
-                <chmod dir="${project.build.directory}/demo-kit-demos/demo4-spring/apache-tomcat-${version.tomcat}/bin" perm="u+x" includes="*.sh" />
+                <chmod dir="${demo.output.directory}/demo-kit-demos/demo2-jpa/jboss-as-${version.jboss}/bin" perm="u+x" includes="*.sh" />
+                <chmod dir="${demo.output.directory}/demo-kit-demos/demo3-jmx/apache-tomcat-${version.tomcat}/bin" perm="u+x" includes="*.sh" />
+                <chmod dir="${demo.output.directory}/demo-kit-demos/demo4-spring/apache-tomcat-${version.tomcat}/bin" perm="u+x" includes="*.sh" />
               </target>
             </configuration>
           </execution>

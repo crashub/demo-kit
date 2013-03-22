@@ -1,0 +1,4 @@
+<snippet>
+	<content><![CDATA[sort -f processingTime:desc -f WebModule -f name]]></content>
+	<tabTrigger>jmx sort</tabTrigger>
+</snippet>

@@ -1,0 +1,4 @@
+<snippet>
+	<content><![CDATA[import groovy.json.*]]></content>
+	<tabTrigger>twitter import</tabTrigger>
+</snippet>

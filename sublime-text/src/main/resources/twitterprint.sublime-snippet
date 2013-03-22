@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[json.results.each { twit ->
+  out << "----------------------\n" << twit.text << "\n";
+}]]></content>
+	<tabTrigger>twitter print</tabTrigger>
+</snippet>
