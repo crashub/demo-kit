@@ -21,6 +21,27 @@ The default output directory is `packaging/target`, but you can override it usin
 
 <pre><code>mvn package -Ddemo.output.directory="/home/foo/demos"</code></pre>
 
+## Install sublime text snippets
+
+You can install some sublime text snippets to help you during the demo:
+
+<pre><code>cd sublime-text
+mvn install -Ddemo.sublimetext.directory="/path/to/sublime text"</code></pre>
+Default OSX path is `/Users/foo/Library/Application Support/Sublime Text 2/Packages/User`
+
+Provided snippets are :
+- `jmx find`
+- `jmx get`
+- `jmx sort`
+- `jmx dashboard`
+- `jmx full`
+- `twitter service`
+- `twitter import`
+- `twitter parse`
+- `twitter print`
+- `twitter command`
+- `twitter argument`
+
 ## Run CRaSH demos
 
 ### Demo 1 : Standalone
