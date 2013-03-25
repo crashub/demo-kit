@@ -15,7 +15,7 @@
     <version.servlet-api>3.0.0</version.servlet-api>
     <version.javaee-api>6.0</version.javaee-api>
     <version.hsqldb>2.2.9</version.hsqldb>
-    <version.crash>1.2.0-cr9</version.crash>
+    <version.crash>1.2.0-cr10</version.crash>
     <version.jboss>7.1.1.Final</version.jboss>
     <version.tomcat>7.0.35</version.tomcat>
     <version.httpclient>4.2.2</version.httpclient>
