@@ -36,7 +36,6 @@ Provided snippets are :
 - `jmx dashboard`
 - `jmx full`
 - `twitter service`
-- `twitter import`
 - `twitter parse`
 - `twitter print`
 - `twitter command`

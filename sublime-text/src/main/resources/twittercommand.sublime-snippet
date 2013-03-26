@@ -1,5 +1,7 @@
 <snippet>
-	<content><![CDATA[class twitter {
+	<content><![CDATA[import groovy.json.*
+
+class twitter {
   @Command
   public void main() {
   }
