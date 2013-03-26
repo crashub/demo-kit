@@ -1,5 +1,4 @@
-<snippet>
-	<content><![CDATA[import org.crsh.text.ui.UIBuilder
+import org.crsh.text.ui.UIBuilder
 
 def table = new UIBuilder().table(columns: [1], rows: [1,1,1]) {
   header {
@@ -27,9 +26,9 @@ def table = new UIBuilder().table(columns: [1], rows: [1,1,1]) {
           }
           jvm.pools { name ->
             row() {
-              label("$name:")
+              label(":")
               eval {
-                execute("jvm pool '$name'")
+                execute("jvm pool ''")
               }
             }
           }
@@ -38,11 +37,10 @@ def table = new UIBuilder().table(columns: [1], rows: [1,1,1]) {
     }
   }
   header {
-    table(columns: [2,1,1], separator: dashed, rightCellPadding: 1) {
+    table(columns: [2,1], separator: dashed, rightCellPadding: 1) {
       header(bold: true, fg: black, bg: white) {
         label("Webapp");
         label("Sessions");
-        label("Global");
       }
       row {
         eval {
@@ -50,9 +48,6 @@ def table = new UIBuilder().table(columns: [1], rows: [1,1,1]) {
         }
         eval {
           execute("jmx find -p Catalina:type=Manager,* | jmx get -a context -a sessionCounter -a sessionCreateRate | sort -f context")
-        }
-        eval {
-          execute("jmx find -p Catalina:type=ThreadPool,name=\\\"http-bio-8080\\\",* | jmx get -a maxThreads -a currentThreadCount -a currentThreadsBusy");
         }
       }
     }
@@ -82,6 +77,4 @@ try {
 }
 finally {
   context.releaseAlternateBuffer();
-}]]></content>
-	<tabTrigger>jmx dashboard</tabTrigger>
-</snippet>
+}
