@@ -40,6 +40,7 @@ Provided snippets are :
 - `twitter print`
 - `twitter command`
 - `twitter argument`
+- `twitter try`
 
 ## Run CRaSH demos
 
