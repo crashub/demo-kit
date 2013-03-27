@@ -1,4 +1,4 @@
 <snippet>
-	<content><![CDATA[jmx get -a WebModule -a name -a servletClass -a requestCount -a processingTime]]></content>
+	<content><![CDATA[jmx get -a name -a servletClass -a requestCount -a processingTime]]></content>
 	<tabTrigger>jmx get</tabTrigger>
 </snippet>

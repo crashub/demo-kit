@@ -38,22 +38,6 @@ header {
   }
 }
 header {
-  table(columns: [2,1], separator: dashed, rightCellPadding: 1) {
-    header(bold: true, fg: black, bg: white) {
-      label("Webapp");
-      label("Sessions");
-    }
-    row {
-      eval {
-        execute("jmx find -p Catalina:j2eeType=WebModule,* | jmx get -a name -a displayName -a stateName -a processingTime | sort -f name")
-      }
-      eval {
-        execute("jmx find -p Catalina:type=Manager,* | jmx get -a context -a sessionCounter -a sessionCreateRate | sort -f context")
-      }
-    }
-  }
-}
-header {
   table(columns: [1], separator: dashed, rightCellPadding: 1) {
     header(bold: true, fg: black, bg: white) {
       label("Threads");
