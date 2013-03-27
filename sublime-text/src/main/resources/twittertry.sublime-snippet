@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.5.2' )
+
+import groovyx.net.http.*
+import static groovyx.net.http.ContentType.*
+import static groovyx.net.http.Method.*
+
+// Class based commands using annotations
+class twitter {
+@Usage("show the current time")
+@Command
+void main(@Required @Argument String keyword) {
+  def http = new HTTPBuilder('http://search.twitter.com/')
+  http.request( GET, JSON ) {
+      uri.path = 'search.json'
+    uri.query = [ v:'q', q: keyword ]
+
+    response.success = { resp, json ->
+      json.results.each { twit ->
+        out << "----------------------\n" << twit.text << "\n";
+      }
+    }
+  }
+}
+}
+]]></content>
+	<tabTrigger>twitter try</tabTrigger>
+</snippet>
