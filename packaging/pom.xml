@@ -15,13 +15,13 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.crsh</groupId>
-      <artifactId>crsh.shell.packaging</artifactId>
+        <groupId>org.crashub</groupId>
+        <artifactId>crash.packaging</artifactId>
       <type>tar.gz</type>
     </dependency>
     <dependency>
-      <groupId>org.crsh</groupId>
-      <artifactId>crsh.shell.packaging</artifactId>
+        <groupId>org.crashub</groupId>
+        <artifactId>crash.packaging</artifactId>
       <classifier>spring</classifier>
       <type>war</type>
     </dependency>

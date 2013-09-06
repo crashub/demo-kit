@@ -15,7 +15,7 @@
     <version.servlet-api>3.0.0</version.servlet-api>
     <version.javaee-api>6.0</version.javaee-api>
     <version.hsqldb>2.2.9</version.hsqldb>
-    <version.crash>1.2.5</version.crash>
+    <version.crash>1.3.0-beta3</version.crash>
     <version.jboss>7.1.1.Final</version.jboss>
     <version.tomcat>7.0.35</version.tomcat>
     <version.httpclient>4.2.2</version.httpclient>
@@ -37,14 +37,14 @@
         <version>${version.hsqldb}</version>
       </dependency>
       <dependency>
-        <groupId>org.crsh</groupId>
-        <artifactId>crsh.shell.packaging</artifactId>
+        <groupId>org.crashub</groupId>
+        <artifactId>crash.packaging</artifactId>
         <version>${version.crash}</version>
         <type>tar.gz</type>
       </dependency>
       <dependency>
-        <groupId>org.crsh</groupId>
-        <artifactId>crsh.shell.packaging</artifactId>
+        <groupId>org.crashub</groupId>
+        <artifactId>crash.packaging</artifactId>
         <version>${version.crash}</version>
         <classifier>spring</classifier>
         <type>war</type>

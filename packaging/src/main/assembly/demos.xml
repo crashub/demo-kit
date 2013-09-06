@@ -36,7 +36,7 @@
       <outputDirectory>/demo1-standalone/</outputDirectory>
       <unpack>true</unpack>
       <includes>
-        <include>org.crsh:crsh.shell.packaging:tar.gz</include>
+        <include>org.crashub:crash.packaging:tar.gz</include>
       </includes>
     </dependencySet>
 
@@ -91,7 +91,7 @@
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>
       <useTransitiveDependencies>false</useTransitiveDependencies>
-      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/</outputDirectory>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crash-spring/</outputDirectory>
       <unpack>true</unpack>
       <unpackOptions>
         <excludes>
@@ -99,13 +99,13 @@
         </excludes>
       </unpackOptions>
       <includes>
-        <include>org.crsh:crsh.shell.packaging:war:spring</include>
+        <include>org.crashub:crash.packaging:war:spring</include>
       </includes>
     </dependencySet>
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>
       <useTransitiveDependencies>false</useTransitiveDependencies>
-      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/WEB-INF/lib/</outputDirectory>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crash-spring/WEB-INF/lib/</outputDirectory>
       <unpack>false</unpack>
       <includes>
         <include>crash-demo:spring-lib</include>
@@ -132,14 +132,14 @@
     </fileSet>
     <fileSet>
       <directory>src/main/resources</directory>
-      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/WEB-INF/</outputDirectory>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crash-spring/WEB-INF/</outputDirectory>
       <includes>
         <include>spring.xml</include>
       </includes>
     </fileSet>
     <fileSet>
       <directory>src/main/resources</directory>
-      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crsh.shell.packaging-${version.crash}-spring/WEB-INF/crash/commands</outputDirectory>
+      <outputDirectory>/demo4-spring/apache-tomcat-${version.tomcat}/webapps/crash-spring/WEB-INF/crash/commands</outputDirectory>
       <includes>
         <include>twitter.groovy</include>
       </includes>
