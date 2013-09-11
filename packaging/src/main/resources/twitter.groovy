@@ -1,28 +1,25 @@
-import groovy.json.*
+import org.crsh.text.Color
+import org.crsh.text.Style
 import java.util.regex.Pattern
-import org.crsh.text.*
 
 class twitter {
+    @Usage("show the current time")
+    @Command
+    void main(@Required @Argument String keyword) {
+        def twitterService = context.attributes.beans['twitterService']
+        def twitter = twitterService.connectionFactory().createConnection(twitterService.oAuthToken()).api;
+        def pattern = Pattern.compile(Pattern.quote("#${keyword}"), Pattern.CASE_INSENSITIVE)
 
-  @Command
-  public void main(@Required @Argument String keyword) {
-    def data = context.attributes.beans['twitterService'].search(keyword)
-    def slurper = new JsonSlurper();
-    def json = slurper.parseText(data)
-
-    def pattern = Pattern.compile(Pattern.quote(keyword), Pattern.CASE_INSENSITIVE)
-    json.results.each { twit ->
-      out << Color.blue << twit.from_user.padRight(20) << Style.reset
-      def matcher = pattern.matcher(twit.text)
-      int prev = 0
-      matcher.each {
-        out << twit.text.substring(0, matcher.start(0))
-        out << Color.red << it << Style.reset
-        prev = matcher.end(0);
-      }
-      out << twit.text.substring(prev);
-
-      out << "\n";
+        twitter.searchOperations().search("#${keyword}").tweets.each { twit ->
+            out << Color.blue << "@" << twit.fromUser.padRight(20) << Style.reset
+            def matcher = pattern.matcher(twit.text)
+            int prev = 0
+            matcher.each {
+                out << twit.text.substring(0, matcher.start(0))
+                out << Color.red << it << Style.reset
+                prev = matcher.end(0);
+            }
+            out << twit.text.substring(prev) << "\n";
+        }
     }
-  }
 }

@@ -1,26 +1,57 @@
 package org.crash.demo.spring;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
+import org.springframework.social.connect.ConnectionFactory;
+import org.springframework.social.connect.support.ConnectionFactoryRegistry;
+import org.springframework.social.oauth1.OAuthToken;
+import org.springframework.social.twitter.api.Twitter;
+import org.springframework.social.twitter.connect.TwitterConnectionFactory;
 
-import java.io.IOException;
-
-/**
- * @author <a href="mailto:alain.defrance@exoplatform.com">Alain Defrance</a>
- */
 public class TwitterService {
 
-  public TwitterService() {
-  }
+    private String consumerKey;
+    private String consumerSecret;
+    private String accessToken;
+    private String tokenSecret;
 
-  public String search(String keyword) throws IOException {
-    HttpClient client = new DefaultHttpClient();
-    HttpGet get = new HttpGet((new StringBuilder()).append("http://search.twitter.com/search.json?q=").append(keyword).toString());
-    HttpResponse response = client.execute(get);
-    return EntityUtils.toString(response.getEntity());
-  }
+    public String getConsumerKey() {
+        return consumerKey;
+    }
 
+    public void setConsumerKey(String consumerKey) {
+        this.consumerKey = consumerKey;
+    }
+
+    public String getConsumerSecret() {
+        return consumerSecret;
+    }
+
+    public void setConsumerSecret(String consumerSecret) {
+        this.consumerSecret = consumerSecret;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    public String getTokenSecret() {
+        return tokenSecret;
+    }
+
+    public void setTokenSecret(String tokenSecret) {
+        this.tokenSecret = tokenSecret;
+    }
+
+    public ConnectionFactory<Twitter> connectionFactory() {
+        ConnectionFactoryRegistry registry = new ConnectionFactoryRegistry();
+        registry.addConnectionFactory(new TwitterConnectionFactory(consumerKey, consumerSecret));
+        return registry.getConnectionFactory(Twitter.class);
+    }
+
+    public OAuthToken oAuthToken() {
+        return new OAuthToken(accessToken, tokenSecret);
+    }
 }

@@ -15,10 +15,13 @@
     <version.servlet-api>3.0.0</version.servlet-api>
     <version.javaee-api>6.0</version.javaee-api>
     <version.hsqldb>2.2.9</version.hsqldb>
-    <version.crash>1.3.0-beta3</version.crash>
+    <version.crash>1.3.0-beta6</version.crash>
     <version.jboss>7.1.1.Final</version.jboss>
     <version.tomcat>7.0.35</version.tomcat>
-    <version.httpclient>4.2.2</version.httpclient>
+    <version.jackson>1.9.13</version.jackson>
+    <version.spring.security>3.1.3.RELEASE</version.spring.security>
+    <version.spring.social>1.0.3.RELEASE</version.spring.social>
+    <version.spring.social.twitter>1.0.5.RELEASE</version.spring.social.twitter>
     <version.assembly.plugin>2.4</version.assembly.plugin>
     <version.antrun.plugin>1.7</version.antrun.plugin>
     <version.resources.plugin>2.4.3</version.resources.plugin>
@@ -50,6 +53,16 @@
         <type>war</type>
       </dependency>
       <dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-core</artifactId>
+        <version>${version.spring.social}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-twitter</artifactId>
+        <version>${version.spring.social.twitter}</version>
+      </dependency>
+      <dependency>
         <groupId>org.jboss.as</groupId>
         <artifactId>jboss-as-dist</artifactId>
         <version>${version.jboss}</version>
@@ -65,16 +78,6 @@
         <artifactId>tomcat</artifactId>
         <version>${version.tomcat}</version>
         <type>zip</type>
-      </dependency>
-      <dependency>
-      	<groupId>org.apache.httpcomponents</groupId>
-      	<artifactId>httpclient</artifactId>
-      	<version>${version.httpclient}</version>
-      </dependency>
-      <dependency>
-      	<groupId>org.apache.httpcomponents</groupId>
-      	<artifactId>httpcore</artifactId>
-      	<version>${version.httpclient}</version>
       </dependency>
       <dependency>
         <groupId>crash-demo</groupId>
@@ -93,6 +96,21 @@
         <artifactId>spring-lib</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-crypto</artifactId>
+          <version>${version.spring.security}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-core-asl</artifactId>
+          <version>${version.jackson}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+          <version>${version.jackson}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -102,5 +120,18 @@
     <module>jmx-webapp</module>
     <module>spring-lib</module>
   </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

@@ -109,8 +109,11 @@
       <unpack>false</unpack>
       <includes>
         <include>crash-demo:spring-lib</include>
-        <include>org.apache.httpcomponents:httpclient</include>
-        <include>org.apache.httpcomponents:httpcore</include>
+        <include>org.springframework.social:spring-social-core</include>
+        <include>org.springframework.social:spring-social-twitter</include>
+        <include>org.springframework.security:spring-security-crypto</include>
+        <include>org.codehaus.jackson:jackson-core-asl</include>
+        <include>org.codehaus.jackson:jackson-mapper-asl</include>
       </includes>
     </dependencySet>
   </dependencySets>
