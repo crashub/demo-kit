@@ -1,4 +1,6 @@
 <snippet>
-	<content><![CDATA[def data = context.attributes.beans['twitterService'].search("devoxx")]]></content>
+	<content><![CDATA[def twitterService = context.attributes.beans['twitterService']
+def twitter = twitterService.connectionFactory().createConnection(twitterService.oAuthToken()).api;
+]]></content>
 	<tabTrigger>twitter service</tabTrigger>
 </snippet>

@@ -1,5 +1,0 @@
-<snippet>
-	<content><![CDATA[def slurper = new JsonSlurper();
-def json = slurper.parseText(data)]]></content>
-	<tabTrigger>twitter parse</tabTrigger>
-</snippet>

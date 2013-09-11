@@ -1,6 +1,7 @@
 <snippet>
-	<content><![CDATA[json.results.each { twit ->
-  out << "----------------------\n" << twit.text << "\n";
-}]]></content>
+	<content><![CDATA[twitter.searchOperations().search("#javazone").tweets.each { twit ->
+  out << "*" << twit.text << "\n"
+}
+]]></content>
 	<tabTrigger>twitter print</tabTrigger>
 </snippet>

@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[def pattern = Pattern.compile(Pattern.quote("#javazone"), Pattern.CASE_INSENSITIVE)
+
+twitter.searchOperations().search("#javazone").tweets.each { twit ->
+  out << Color.blue << "@" << twit.fromUser.padRight(20) << Style.reset
+  def matcher = pattern.matcher(twit.text)
+  int prev = 0
+  matcher.each {
+      out << twit.text.substring(0, matcher.start(0))
+      out << Color.red << it << Style.reset
+      prev = matcher.end(0);
+  }
+  out << twit.text.substring(prev) << "\n";
+}
+]]></content>
+	<tabTrigger>twitter color</tabTrigger>
+</snippet>
