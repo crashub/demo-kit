@@ -39,6 +39,16 @@
         <include>org.crashub:crash.packaging:tar.gz</include>
       </includes>
     </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <outputDirectory>/demo1-standalone/lib/</outputDirectory>
+      <unpack>false</unpack>
+      <includes>
+        <include>javax.mail:mail</include>
+        <include>org.crashub:crash.plugins.mail</include>
+      </includes>
+    </dependencySet>
 
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>

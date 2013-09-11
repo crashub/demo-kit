@@ -26,6 +26,11 @@
       <type>war</type>
     </dependency>
     <dependency>
+      <groupId>org.crashub</groupId>
+      <artifactId>crash.plugins.mail</artifactId>
+      <version>${version.crash}</version>
+    </dependency>
+    <dependency>
       <groupId>org.jboss.as</groupId>
       <artifactId>jboss-as-dist</artifactId>
       <type>zip</type>
@@ -68,6 +73,10 @@
     <dependency>
       <groupId>org.codehaus.jackson</groupId>
       <artifactId>jackson-mapper-asl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
     </dependency>
   </dependencies>
 
