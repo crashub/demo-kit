@@ -46,7 +46,9 @@
       <unpack>false</unpack>
       <includes>
         <include>javax.mail:mail</include>
+        <include>it.sauronsoftware.cron4j:cron4j</include>
         <include>org.crashub:crash.plugins.mail</include>
+        <include>org.crashub:crash.plugins.cron</include>
       </includes>
     </dependencySet>
 
@@ -134,6 +136,13 @@
       <outputDirectory>/demo1-standalone/cmd/</outputDirectory>
       <includes>
         <include>monitor.groovy</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/resources</directory>
+      <outputDirectory>/demo1-standalone/conf/</outputDirectory>
+      <includes>
+        <include>crontab</include>
       </includes>
     </fileSet>
     <fileSet>

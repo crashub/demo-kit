@@ -20,6 +20,7 @@
     <version.tomcat>7.0.35</version.tomcat>
     <version.jackson>1.9.13</version.jackson>
     <version.mail>1.4.7</version.mail>
+    <version.cron4j>2.2.5</version.cron4j>
     <version.spring.security>3.1.3.RELEASE</version.spring.security>
     <version.spring.social>1.0.3.RELEASE</version.spring.social>
     <version.spring.social.twitter>1.0.5.RELEASE</version.spring.social.twitter>
@@ -56,6 +57,11 @@
       <dependency>
         <groupId>org.crashub</groupId>
         <artifactId>crash.plugins.mail</artifactId>
+        <version>${version.crash}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.crashub</groupId>
+        <artifactId>crash.plugins.cron</artifactId>
         <version>${version.crash}</version>
       </dependency>
       <dependency>
@@ -121,6 +127,11 @@
         <groupId>javax.mail</groupId>
         <artifactId>mail</artifactId>
         <version>${version.mail}</version>
+      </dependency>
+      <dependency>
+        <groupId>it.sauronsoftware.cron4j</groupId>
+        <artifactId>cron4j</artifactId>
+        <version>${version.cron4j}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -31,6 +31,11 @@
       <version>${version.crash}</version>
     </dependency>
     <dependency>
+      <groupId>org.crashub</groupId>
+      <artifactId>crash.plugins.cron</artifactId>
+      <version>${version.crash}</version>
+    </dependency>
+    <dependency>
       <groupId>org.jboss.as</groupId>
       <artifactId>jboss-as-dist</artifactId>
       <type>zip</type>
@@ -77,6 +82,10 @@
     <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>mail</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>it.sauronsoftware.cron4j</groupId>
+      <artifactId>cron4j</artifactId>
     </dependency>
   </dependencies>
 

@@ -1,0 +1,1 @@
+* * * * * monitor --displayOnce | mail -s "From cron" crashubdemo@gmail.com
